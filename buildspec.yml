@@ -5,4 +5,4 @@ phases:
     - composer update
   build:
     commands:
-    - php artisan serve
+    - phpunit tests
