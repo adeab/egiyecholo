@@ -3,9 +3,6 @@
 <!-- group slider news start -->
 <div class="container-fluid" id="News">
     <div id="mixedSlider">
-
-        <h1>This is a Heading</h1>
-        <p>This is a paragraph.</p>
                         <div class="MS-content">
                             @foreach($topposts as $post)
                             <div class="item">
