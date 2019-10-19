@@ -33,6 +33,7 @@ Route::group(['prefix'=>'backend','middleware'=>'auth','namespace'=>'admin'],fun
     Route::post('/users/contributor', 'UserController@storecontributor')->name('admin.storecontributor');
     Route::get('/change_password', 'AdminPagesController@changepassword')->name('admin.change_password');
     Route::post('/update_password', 'AdminPagesController@updatepassword')->name('admin.update_password');
+    Route::get('/publishia/{post_id}', 'AdminPagesController@publish_ia')->name('publishia');
     Route::resource('users', 'UserController'); 
 });
 Route::resource('/posts', 'PostController');

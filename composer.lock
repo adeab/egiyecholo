@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a05c500cba2f33434fb290a5f24a006c",
+    "content-hash": "3e0ae2c3391b6f7634d96f4e7dfd2fdb",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -612,6 +612,116 @@
                 "parser"
             ],
             "time": "2019-03-17T18:48:37+00:00"
+        },
+        {
+            "name": "facebook/facebook-instant-articles-sdk-php",
+            "version": "v1.10.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/facebook-instant-articles-sdk-php.git",
+                "reference": "acefb2a5f0a0952bcfe062f45e159670bcb10c35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/facebook-instant-articles-sdk-php/zipball/acefb2a5f0a0952bcfe062f45e159670bcb10c35",
+                "reference": "acefb2a5f0a0952bcfe062f45e159670bcb10c35",
+                "shasum": ""
+            },
+            "require": {
+                "facebook/graph-sdk": "~5.0",
+                "php": "^5.4 || ^5.6 || ^7",
+                "symfony/css-selector": "^2.8 || ^3.1 || ^4.1"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "^1.6.0",
+                "phpdocumentor/reflection-docblock": "^2.0 || ^4.0",
+                "phpunit/phpunit": "4.8.*",
+                "squizlabs/php_codesniffer": "^2.6.0 || ^3.0.0",
+                "symfony/yaml": "2.1.* || 3.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Facebook\\InstantArticles\\": "src/Facebook/InstantArticles/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/facebook-instant-articles-sdk-php/contributors"
+                }
+            ],
+            "description": "Facebook Instant Articles SDK for PHP",
+            "homepage": "https://github.com/facebook/facebook-instant-articles-sdk-php",
+            "keywords": [
+                "articles",
+                "facebook",
+                "instant",
+                "sdk"
+            ],
+            "time": "2019-03-21T19:01:02+00:00"
+        },
+        {
+            "name": "facebook/graph-sdk",
+            "version": "5.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/php-graph-sdk.git",
+                "reference": "2d8250638b33d73e7a87add65f47fabf91f8ad9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/2d8250638b33d73e7a87add65f47fabf91f8ad9b",
+                "reference": "2d8250638b33d73e7a87add65f47fabf91f8ad9b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|^7.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "mockery/mockery": "~0.8",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client",
+                "paragonie/random_compat": "Provides a better CSPRNG option in PHP 5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Facebook\\": "src/Facebook/"
+                },
+                "files": [
+                    "src/Facebook/polyfills.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Facebook Platform"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/php-graph-sdk/contributors"
+                }
+            ],
+            "description": "Facebook SDK for PHP",
+            "homepage": "https://github.com/facebook/php-graph-sdk",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2018-12-11T22:56:31+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -1312,16 +1422,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.56",
+            "version": "1.0.57",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "90e3f83cb10ef6b058d70f95267030e7a6236518"
+                "reference": "0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/90e3f83cb10ef6b058d70f95267030e7a6236518",
-                "reference": "90e3f83cb10ef6b058d70f95267030e7a6236518",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
+                "reference": "0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
                 "shasum": ""
             },
             "require": {
@@ -1392,7 +1502,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-10-12T13:05:59+00:00"
+            "time": "2019-10-16T21:01:05+00:00"
         },
         {
             "name": "league/oauth1-client",

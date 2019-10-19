@@ -47,6 +47,7 @@ Posts List
                         </form>
                          
                     </li>
+                    <li class="m_2"><a href="{{route('publishia', $post->id)}}"><i class="fa fa-upload"></i> Instant Article</a></li>
       
                                                                   
       
