@@ -44,7 +44,7 @@ $(document).ready(function(){
 <body  data-spy="scroll" data-target=".navbar" data-offset="80">
 
 <!-- header slider area start -->
-<div class="header" id="home" style="height: 100%;">
+<div class="header" id="home" style="">
 	  <section >
 	   
 <nav class="navbar">
