@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="@yield('description')">
+  <meta name="keywords" content="@yield('keywords')">
 	<title>এগিয়ে চলো | বাংলাদেশের টাইমলাইন</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('frontend/style.css')}}">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
@@ -14,6 +16,7 @@
 	<script src="https://kit.fontawesome.com/beffab7788.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri&display=swap" rel="stylesheet"> 
+
  <script>
 $(document).ready(function(){
   // Add smooth scrolling to all links
@@ -40,6 +43,10 @@ $(document).ready(function(){
   });
 });
 </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- responsive1 -->
+
+
 </head>
 <body  data-spy="scroll" data-target=".navbar" data-offset="80">
 
@@ -54,7 +61,12 @@ $(document).ready(function(){
 
   </a>
   <div class="top_add">
-  	<img src="{{ asset('frontend/img/add.png')}}">
+  <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9620690561069746"
+     data-ad-slot="5320733035"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
   </div>
   <!-- Links -->
   <ul class=" nav_right">
@@ -67,6 +79,9 @@ $(document).ready(function(){
             <span class="caret"></span>
             <ul class="dropdown-menu" style="top: 33px;left: -53px;">
               @if (Auth::check())
+              <li class="m_2">
+                  <a href="{{url('saved_posts/')}}" ><i class="fa fa-bookmark"></i> My Saves</a>
+              </li>
               <li class="m_2">
                   <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Logout</a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -136,14 +151,16 @@ $(document).ready(function(){
 		      <li class="nav-item dropdown">
             <a class="nav-link dropbtn" href="{{url('বিভাগ/বাংলাদেশ')}}">বাংলাদেশ</a>
             <div class="dropdown-content">
-              <a href="#">আপনি-ই সাংবাদিক</a>
-              <a href="#">ইনসাইড বাংলাদেশ</a>
-              <a href="#">রাজনীতি নাকি জননীতি</a>
+              <a href="{{url('বিভাগ/বাংলাদেশ/আপনি-ই সাংবাদিক')}}">আপনি-ই সাংবাদিক</a>
+              <a href="{{url('বিভাগ/বাংলাদেশ/ইনসাইড বাংলাদেশ')}}">ইনসাইড বাংলাদেশ</a>
+              <a href="{{url('বিভাগ/বাংলাদেশ/রাজনীতি নাকি জননীতি')}}">রাজনীতি নাকি জননীতি</a>
+              <a href="{{url('বিভাগ/বাংলাদেশ/যা ঘটছে')}}">যা ঘটছে</a>
+              <a href="{{url('বিভাগ/বাংলাদেশ/গনমানুষের সাক্ষাৎকার')}}">গনমানুষের সাক্ষাৎকার</a>
             </div>
 		      </li>
 		      <li class="nav-item dropdown">
 		        <a class="nav-link dropbtn" href="{{url('বিভাগ/খেলা ও ধুলা')}}">খেলা ও ধুলা</a>
-            <div class="dropdown-content">
+             <div class="dropdown-content">
               <a href="#">ক্রিকেট</a>
               <a href="#">অ্যাসোসিয়েশনের</a>
               <a href="#">ফিনিক্স</a>
@@ -152,14 +169,35 @@ $(document).ready(function(){
 		      <li class="nav-item">
 		        <a class="nav-link" href="{{url('বিভাগ/সিনেমা হলের গলি')}}">সিনেমা হলের গলি</a>
 		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="{{url('বিভাগ/এরাউন্ড দ্যা ওয়ার্ল্ড')}}">এরাউন্ড দ্যা ওয়ার্ল্ড</a>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropbtn" href="{{url('বিভাগ/এরাউন্ড দ্যা ওয়ার্ল্ড')}}">এরাউন্ড দ্যা ওয়ার্ল্ড</a>
+            <div class="dropdown-content">
+              <a href="{{url('বিভাগ/এরাউন্ড দ্যা ওয়ার্ল্ড/ছবি কথা বলে')}}">ছবি কথা বলে</a>
+              <a href="{{url('বিভাগ/এরাউন্ড দ্যা ওয়ার্ল্ড/হেঁশেলের খোঁজ-খবরাদি')}}">হেঁশেলের খোঁজ-খবরাদি</a>
+              <a href="{{url('বিভাগ/এরাউন্ড দ্যা ওয়ার্ল্ড/অদ্ভুত,বিস্ময়,অবিশ্বাস্য')}}">অদ্ভুত,বিস্ময়,অবিশ্বাস্য</a>
+              <a href="{{url('বিভাগ/এরাউন্ড দ্যা ওয়ার্ল্ড/বিবিধ')}}">বিবিধ</a>
+              <!-- <a href="{{url('বিভাগ/বাংলাদেশ/গনমানুষের সাক্ষাৎকার')}}">গনমানুষের সাক্ষাৎকার</a> -->
+            </div>
 		      </li>  
-		         <li class="nav-item">
-		        <a class="nav-link" href="{{url('বিভাগ/তারুণ্য')}}">তারুণ্য</a>
+		         <li class="nav-item dropdown">
+		        <a class="nav-link dropbtn" href="{{url('বিভাগ/তারুণ্য')}}">তারুণ্য</a>
+            <div class="dropdown-content">
+              <a href="{{url('বিভাগ/তারুণ্য/অনুপ্রেরণার গল্পগুচ্ছ')}}">অনুপ্রেরণার গল্পগুচ্ছ</a>
+              <a href="{{url('বিভাগ/তারুণ্য/ডিসকভারিং বাংলাদেশ')}}">ডিসকভারিং বাংলাদেশ</a>
+              <a href="{{url('বিভাগ/তারুণ্য/পিংক এন্ড ব্লু')}}">পিংক এন্ড ব্লু</a>
+              <!-- <a href="{{url('বিভাগ/তারুণ্য')}}">বুক রিভিউ</a> -->
+              <!-- <a href="{{url('বিভাগ/বাংলাদেশ/গনমানুষের সাক্ষাৎকার')}}">গনমানুষের সাক্ষাৎকার</a> -->
+            </div>
 		      </li> 
-		      <li class="nav-item">
-		        <a class="nav-link" href="{{url('বিভাগ/রিডিং রুম')}}">রিডিং রুম</a>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropbtn" href="{{url('বিভাগ/রিডিং রুম')}}">রিডিং রুম</a>
+            <div class="dropdown-content">
+              <a href="{{url('বিভাগ/রিডিং রুম/মনের অন্দরমহল')}}">মনের অন্দরমহল</a>
+              <a href="{{url('বিভাগ/রিডিং রুম/রকমারি')}}">রকমারি</a>
+              <a href="{{url('বিভাগ/রিডিং রুম/লেখালেখি')}}">লেখালেখি</a>
+              <a href="{{url('বিভাগ/রিডিং রুম/বুক রিভিউ')}}">বুক রিভিউ</a>
+              <!-- <a href="{{url('বিভাগ/বাংলাদেশ/গনমানুষের সাক্ষাৎকার')}}">গনমানুষের সাক্ষাৎকার</a> -->
+            </div>
 		      </li>  
 		      <li class="nav-item">
 		        <a class="nav-link" href="{{url('বিভাগ/টেকি দুনিয়ার টুকিটাকি')}}">টেকি দুনিয়ার টুকিটাকি</a>
@@ -171,7 +209,15 @@ $(document).ready(function(){
 </div>
 <!-- navbar area end -->
 @yield('body_content')
-
+<div class="top_add adds">
+      <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9620690561069746"
+     data-ad-slot="5320733035"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+  </div>
+    </div>
 <!-- latest work -->
 <footer>
 	<div class="container footer_agaia">
@@ -263,7 +309,9 @@ $(document).ready(function(){
 		</div>
 	</div>
 </footer>
-
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <script  src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

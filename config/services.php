@@ -35,9 +35,9 @@ return [
     ],
     //for testing purpose
     'facebook' => [
-        'client_id' => '1670705249727060',
-        'client_secret' => '0f8dca6df23022481e615a3aec27ef60',
-        'redirect' => 'http://localhost/newsportal_final/public/calback/facebook',
+        'client_id' => '1892690367681906',
+        'client_secret' => '912867b128bbd564b1dd09eff889c789',
+        'redirect' => 'https://egiye-cholo.com/callback/facebook',
       ],
       
     //actual one

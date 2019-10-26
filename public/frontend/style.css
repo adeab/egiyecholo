@@ -41,7 +41,7 @@ body {
 .top_add{
   margin: 0 auto;
   height: 90px;
-  width: 728px;
+  width: auto;
 }
 .top_add img{
   height: 100%;
@@ -516,51 +516,6 @@ border-bottom: 1px solid #eeecec;
   right: 10px;
 }
 /*group slider end*/
-#contact_area{
-  width: 100%;
-}
-.contact_input_ar{
-  background-image: url("img/contact.jpg");
-  height: 500px;
-  background-size: cover;
-  padding: 60px;
-}
-.mid_con{
-  padding: 15px 61px;
-}
-.con_p{
-  padding: 10px 50px;
-  color:#fff;
-  font-size: 22px;
-  font-weight: 501;
-}
-.btn.pull-right.submit {
-  margin: 35px auto;
-  background:transparent;
-  border-radius: 0px;
-  border: 2px solid#fff;
-  color:#fff;
-  padding: 7px 35px;
-}
-.btn.pull-right.submit:hover {
-    background: #fff;
-    color:#000;
-}
-label{
-  color: #fff;
-  padding: 19px 0px 0px 0px;
-}
-input[type=text] {
-  border: none;
-  border-bottom: 2px solid #fff;
-  background: top;
-  color: #fff;
-  width: 100%;
-}
-.maps_con{
-  padding: 0 !important;
-}
-/*contact area end*/
 
 /*footer area start*/
 footer {
@@ -670,7 +625,7 @@ footer {
     height: 50px;
     width: 50px;
     position: absolute;
-    left: 3px;
+    left: -4px;
     border-radius: 50%;
     border: 4px solid #fff;
     top: 25px;
@@ -694,8 +649,8 @@ footer {
     width: 100%;
 }
 .col-md-12.final img {
-    height: 100%;
-    width: 100%;
+   height: auto !important;
+    width: 100% !important;
 }
 
 .pre img {
@@ -812,10 +767,12 @@ footer {
 .title_list ul li{
   float: none;
   padding: 15px;
+  list-style: none;
 }
 .title_list li img {
   left: 18px;
   top: 9px;
+  position: unset;
 }
 .de_right {
   margin-top: 5px;
@@ -826,6 +783,7 @@ footer {
 }
 .final p{
   text-align: justify;
+  padding:0px; 
 }
 .title_tag{
    padding: 0px 22px !important;
@@ -835,5 +793,8 @@ footer {
 }
 .long_add_img {
     display:none;
+}
+.mid_add_img {
+  margin: 0 auto;
 }
 }

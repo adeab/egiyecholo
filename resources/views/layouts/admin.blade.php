@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="index.html"><i style="font-size: 16px;" class="fa fa-facebook fa-fw nav_icon"></i>Instant Article</a>
+                            <a href="{{route('admin.iaposts')}}"><i style="font-size: 16px;" class="fa fa-facebook fa-fw nav_icon"></i>Instant Article</a>
                         </li>
                         <hr>
                         <li><a href="{{ route('admin.change_password') }}"><i class="fa fa-shield fa-fw nav_icon"></i> Change Password</a></li>

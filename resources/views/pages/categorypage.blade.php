@@ -19,7 +19,13 @@
 <div class="container">
     <div class="row">
       <div class="top_add adds">
-      <img src="img/add.png">
+      <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9620690561069746"
+     data-ad-slot="5320733035"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+  </div>
     </div>
   </div>
 </div>

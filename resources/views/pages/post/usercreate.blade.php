@@ -1,7 +1,7 @@
 <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
 
 <div class=" container graphs">
-    <div class="xs" style="background:#8f8c8c;padding: 30px;">
+    <div class="xs" style="background:#ccc;padding: 30px;">
         <h4>Upload Post</h4>
           <div class="tab-content">
                    <div class="tab-pane active" id="horizontal-form"> 
@@ -23,76 +23,76 @@
                             </div>
                             {{-- <div id="image_preview"></div> --}}
                            <div class="form-group">
-                               <label for="focusedinput" class="col-sm-2 control-label">Title</label>
-                               <div class="col-sm-8">
-                                   <input type="text" class="form-control1" name="title" placeholder="Title">
-                               </div>                               
+                               <label for="focusedinput" class="control-label">Title</label>
+                               
+                                   <input type="text" class="form-control" name="title" placeholder="Title">
+                                                             
                            </div>
                            <div class="form-group">
-                                <label for="txtarea1" class="col-sm-2 control-label">Body</label>
-                                <div class="col-sm-8"><textarea class="ckeditor" name="body"></textarea></div>
+                                <label for="txtarea1" class=" control-label">Body</label>
+                                <textarea class="ckeditor" name="body"></textarea>
                             </div>
                             <div class="form-group">
-                               <label for="selector1" class="col-sm-2 control-label">Category</label>
-                               <div class="col-sm-8"><select name="category" id="selector1" class="form-control1">
+                               <label for="selector1" class=" control-label">Category</label>
+                               <select name="category" id="selector1" class="form-control">
                                 <option disabled selected>Select</option>
                                 @foreach ($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>    
                                 @endforeach
-                               </select></div>
+                               </select>
                            </div>
                            <div class="form-group">
-                                <label for="focusedinput" class="col-sm-2 control-label">SEO Keywords</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control1" name="seokey" placeholder="SEO Keywords">
-                                </div>                               
+                                <label for="focusedinput" class="control-label">SEO Keywords</label>
+                                
+                                    <input type="text" class="form-control" name="seokey" placeholder="SEO Keywords">
+                                                               
                             </div>
                             <div class="form-group">
-                                <label for="focusedinput" class="col-sm-2 control-label">Tags</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control1" name="tag" placeholder="Tags">
-                                </div>                               
+                                <label for="focusedinput" class="control-label">Tags</label>
+                                
+                                    <input type="text" class="form-control" name="tag" placeholder="Tags">
+                                                              
                             </div>
                             <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Reading Time</label>
-                                    <div class="col-sm-2 col-lg-2 col-md-2">
-                                        <input type="text" class="form-control1" name="time" >
-                                    </div>
-                                    <div class="col-sm-4 col-lg-4 col-md-4">
+                                    <label for="focusedinput" class=" control-label">Reading Time</label>
+                                   
+                                        <input type="text" class="form-control" name="time" >
+                               
+                                    
                                         <p>Minutes Read</p>
-                                    </div>                               
+                                                                 
                             </div>
                         <div class="panel-footer">
                                 @if (Auth::check())
                                 <div class="form-group">
-                                        <div class="col-sm-8">
-                                        <input type="text" class="form-control1" name="name" placeholder="Name" value="{{Auth::user()->name}}" hidden>
-                                        </div>                               
+                                      
+                                        <input type="text" class="form-control" name="name" placeholder="Name" value="{{Auth::user()->name}}" hidden>
+                                                                  
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-sm-8">
-                                            <input type="email" class="form-control1" name="email" placeholder="Email" value="{{Auth::user()->email}}" hidden>
-                                        </div>                               
+                                        
+                                            <input type="email" class="form-control" name="email" placeholder="Email" value="{{Auth::user()->email}}" hidden>
+                                                                    
                                     </div>
                               @else
                               <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Your Name</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control1" name="name" placeholder="Name">
-                                    </div>                               
+                                    <label for="focusedinput" class=" control-label">Your Name</label>
+                                    
+                                        <input type="text" class="form-control" name="name" placeholder="Name">
+                                                                
                                 </div>
                                 <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Your Email</label>
-                                    <div class="col-sm-8">
-                                        <input type="email" class="form-control1" name="email" placeholder="Email">
-                                    </div>                               
+                                    <label for="focusedinput" class="control-label">Your Email</label>
+                                    
+                                        <input type="email" class="form-control" name="email" placeholder="Email">
+                                                                 
                                 </div>
                               @endif
                         
                             <div class="row">
-                                <div class="col-sm-8 col-sm-offset-2">
-                                    <button class="btn-success btn">Submit</button>
-                                </div>
+                                
+                                    <button style="margin:0 auto;" class="btn-success btn">Submit</button>
+                               
                             </div>
                          </div>
                          

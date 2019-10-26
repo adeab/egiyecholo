@@ -853,7 +853,7 @@ i.dollar1{
 /*-- graphs --*/
 .graphs{
   padding: 2em 1em;
-  background: #f2f4f8;
+  background: #ccc;
   font-family: 'Roboto', sans-serif;
 }
 canvas#doughnut, canvas#line, canvas#polarArea, #bar, #pie, #radar{
@@ -884,9 +884,9 @@ canvas#doughnut, canvas#line, canvas#polarArea, #bar, #pie, #radar{
   box-shadow: none !important;
   width: 100%;
   font-size: 0.85em;
-  font-weight: 300;
+  font-weight: 400;
   height: 40px;
-  border-radius: 0;
+  border-radius:5px;
   -webkit-appearance: none;
 }
 .control3{
@@ -1115,8 +1115,9 @@ h2.modal-title {
 .form-horizontal .control-label {
   text-align: right;
   color: #000;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 0.85em;
+  padding: 8px 0px;
 }
 .checkbox-inline1{
   position: relative;

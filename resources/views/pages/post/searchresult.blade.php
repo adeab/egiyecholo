@@ -13,12 +13,17 @@
         <div class="alert alert-info">
             Search results for <strong>{{$keyword}}</strong>
         </div>
-    @else
-    <div class="alert alert-info">
-    Posts with tag <strong>{{$keyword}}</strong>
-        </div>
-    <!-- <h4> {{$keyword}}</h4> -->
-    @endif
+        @elseif($type=="tag")
+            <div class="alert alert-info">
+            Posts with tag <strong>{{$keyword}}</strong>
+                </div>
+            <!-- <h4> {{$keyword}}</h4> -->
+        @else
+        <div class="alert alert-info">
+          <strong>{{$keyword}}</strong>
+                </div>
+            <!-- <h4> {{$keyword}}</h4> -->
+        @endif
           <div class="row ">
               @forelse($posts as $post)
                 <div class="col-md-3 third_lay_img">
@@ -37,7 +42,9 @@
              @empty
              <h3>No Posts Found</h3>   
               @endforelse
+              @if($type!="bookmark")
               {{$posts->links()}}
+              @endif
              
              
         </div>

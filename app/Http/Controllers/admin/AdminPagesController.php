@@ -96,91 +96,7 @@ class AdminPagesController extends Controller
         
         if(auth()->user()->category=="Admin" || auth()->user()->category=="Editor")
         {
-            
-            
-        // $allposts=WpPost::where('post_type', 'attachment')->where('post_parent','!=', '0')->get();
-        // // dd($allposts);
-        
-        // foreach ($allposts as $post)
-        // {
-        //     $post2=Post::find($post->post_parent);
-        //     if(!empty($post2)){
-        //     $post2->cover_image=$post->guid;
-        //     $post2->save();
-        //     }
-        // }
-        // $categories=Category::all();
-        // foreach($categories as $category)
-        // {
-        //     $term=WpTerm::where('name', $category->name)->first();
-        //     if(!empty($term)){
-        //     $category->id=$term->term_id;
-        //     $category->save();}
-        // }
-        
-        // $rterm=WpTermRelationship::where('term_taxonomy_id', '10')->get();
-        
-        // foreach($rterm as $rt){
-        //     $post=Post::find($rt->object_id);
-        //     if(!empty($post)){
-        //     $post->category_id=$rt->term_taxonomy_id;
-        //     $post->save();
-                
-        //     }
-        // }
-        //5339
-        // $posts=WpPost::where('post_status', 'publish')->where('post_type', 'post')->skip(4500)->take(1000)->get();
-        // // dd(count($posts));
-        // foreach($posts as $oldpost)
-        // {
-        //     $newpost=new Post;
-        //     $newpost->id=$oldpost->ID;
-        //     $newpost->title=$oldpost->post_title;
-        //     $newpost->body=$oldpost->post_content;
-        //     $newpost->user_id=$oldpost->post_author;
-        //     $newpost->olddb=1;
-        //     $newpost->published_at=$oldpost->post_date_gmt;
-        //     $newpost->publication_status="Published";
-        //     $newpost->category_id=1;
-        //     $newpost->save();
-        // }
-        // $posts=Post::skip(4000)->take(1339)->get();
-        // foreach($posts as $post)
-        // {
-        //     $user=WpUser::find($post->user_id);
-        //     $post->name=$user->display_name;
-        //     $post->email=$user->user_email;
-        //     $post->save();
-        // }
-        // $wp=WpPopularpostsdata::take(1)->get();
-        // dd($wp);
-        
-        
-        
-        // $posts=Post::skip(4500)->take(1500)->get();
-        // foreach($posts as $post)
-        // {
-        //     $wp=WpPopularpostsdata::where('postid', $post->id)->first();
-        //     if(!empty($wp))
-        //     {
-        //         $post->viewcount=$wp->pageviews;
-        //         $post->save();
-                            
-        //     }
-            
-        // }
        
-        // $users=WpUser::all();
-        
-        //get what are the tags 
-       
-        
-        $users = User::where('id', '!=', auth()->id())->get();
-        foreach($users as $user)
-        {
-            $user->category="N/A";
-            $user->save();
-        }
         
             
             $all_posts=Post::where('publication_status', 'Published')->orderBy('id', 'DESC')->paginate(20);
@@ -193,6 +109,27 @@ class AdminPagesController extends Controller
         
          
     }
+    public function ia_post_list()
+    {
+        
+        
+        
+        if(auth()->user()->category=="Admin" || auth()->user()->category=="Editor")
+        {
+       
+        
+            
+            $all_posts=Post::where('facebookia', '1')->orderBy('id', 'DESC')->paginate(20);
+            return view('adminpanel.allposts', compact('all_posts'));
+        }
+        else
+        {
+            return view('pages.noaccess');
+        }
+        
+         
+    }
+    
     
     public function pending_post_list()
     {
@@ -480,7 +417,7 @@ class AdminPagesController extends Controller
         $client = Client::create(
             '1892690367681906',
             '912867b128bbd564b1dd09eff889c789',
-            '71492ae75b8638b2a3d1d1961c24f0be',
+            'EAAa5ZAFEJFXIBANS0PxzZCpHmYSrqgo1MYUIkAZAakAkFYLJXPVSv5NKbhsSvaguf1QJnHI1eUhKS0PZB7ZAC9qazbYHm35hLokZCVFpZCmhCLcsC8W6YgYPcvJqkolUqCA2IStZAnGh8KD0DNwKkWLYWHT8RAW45mDBJLTivzIAoZBwmnkkjXlPw',
             '961051600677660'
         );
 
@@ -488,6 +425,8 @@ class AdminPagesController extends Controller
         try {
             // $client->importArticle($instant_article, $take_live);
             $client->importArticle($article);
+            $post->facebookia=1;
+            $post->save();
         } catch (Exception $e) {
             echo 'Could not import the article: '.$e->getMessage();
         }
