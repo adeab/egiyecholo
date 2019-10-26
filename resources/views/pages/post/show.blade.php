@@ -34,7 +34,7 @@
 
       </div>
       <div class="col-md-12 final" style="padding:0;">
-         @if($post->olddb==0)
+                                    @if($post->olddb==0)
                                     <img class=" img-responsive" style="margin:0 auto;"  src="{{ asset('storage/blogImage/' . $post->cover_image) }}" >
                                     @else
                                         @if(!empty($post->cover_image))
