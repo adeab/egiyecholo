@@ -174,7 +174,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        
+        //showing error solution
         $post=Post::find($id);  
         if (Auth::check()) {
             $bookmark= Bookmark::where('user_id', auth()->user()->id)->where('post_id', $id)->first();
@@ -400,6 +400,8 @@ class PostController extends Controller
         
        
     }
+
+    //change for error
     public function searchkeyword(Request $request)
     {
         // dd($request);
