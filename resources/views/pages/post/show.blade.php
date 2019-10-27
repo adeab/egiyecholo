@@ -5,8 +5,8 @@
     Post Page
     @endsection
     @section('keywords')
-@foreach($seos as $seo)
-{{$seo->seokeyword->keyword}}
+@foreach($seo_keywords as $seo_keyword)
+{{$seo_keyword}}
 @endforeach
 @endsection
     @section('body_content')

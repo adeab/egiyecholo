@@ -11,6 +11,7 @@ use App\SeoPost;
 use App\Tag;
 use App\TagPost;
 use App\Bookmark;
+
 // use Visitor;
 
 
@@ -174,15 +175,19 @@ class PostController extends Controller
     public function show($id)
     {
         
-        $post=Post::find($id);
-        $bookmark= Bookmark::where('user_id', auth()->user()->id)->where('post_id', $id)->first();
-        if(empty($bookmark)){
-        $post_saved="false";}
-        else
-        {
-            $post_saved="true";
+        $post=Post::find($id);  
+        if (Auth::check()) {
+            $bookmark= Bookmark::where('user_id', auth()->user()->id)->where('post_id', $id)->first();
+                if(empty($bookmark)){
+                $post_saved="false";}
+                else
+                {
+                    $post_saved="true";
+                }
         }
-        
+        else{
+        $post_saved="false";
+        }
 
           // get previous user id
         $previous = Post::where('id', '<', $post->id)->where('category_id', $post->category_id)->where('publication_status', 'Published')->orderBy('id','desc')->first();
@@ -190,10 +195,19 @@ class PostController extends Controller
        $next = Post::where('id', '>', $post->id)->where('category_id', $post->category_id)->where('publication_status', 'Published')->orderBy('id')->first();
        $tags= TagPost::where('post_id', $id)->get();
        $seos= SeoPost::where('post_id', $id)->get();
+       $seokeywords=[];
+       foreach($seos as $seo)
+       {
+           $keyword=SeoKeyword::find($seo->seo_id);
+           $seokeywords[]=$keyword->keyword;
+       }
+       $seo_keywords=collect($seokeywords);
+    //    dd($seo_keywords);
        $paragraphs= explode('</p>', $post->body);
        $para=$paragraphs[0].'<div class="top_add adds"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9620690561069746" data-ad-slot="5320733035" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
        $body=str_replace($paragraphs[0],$para,$post->body);
-        return view('pages.post.show', compact('post', 'previous', 'next', 'tags', 'post_saved', 'body'));
+     
+       return view('pages.post.show', compact('post', 'previous', 'next', 'tags', 'post_saved', 'body', 'seo_keywords'));
     }
 
     /**
