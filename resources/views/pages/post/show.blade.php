@@ -4,6 +4,12 @@
     @section('page_title')
     Post Page
     @endsection
+@section('post_title')
+    {{$post->title}}
+@endsection
+@section('description')
+    {{$post->title}}
+@endsection
     @section('keywords')
 @foreach($seo_keywords as $seo_keyword)
 {{$seo_keyword}}

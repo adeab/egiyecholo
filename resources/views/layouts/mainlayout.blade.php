@@ -4,9 +4,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="@yield('description')">
-  <meta name="keywords" content="@yield('keywords')">
-	<title>এগিয়ে চলো | বাংলাদেশের টাইমলাইন</title>
+    <meta name="description" content="@yield('description')">
+    <meta name="keywords" content="@yield('keywords')">
+    <meta name="title" content="@yield('post_title')">
+    <meta name="description" content="@yield('description')">
+    <title>এগিয়ে চলো | বাংলাদেশের টাইমলাইন</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('frontend/style.css')}}">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
