@@ -179,9 +179,9 @@ class UserController extends Controller
     {
         $user=User::find($id);
         $this->validate($request, array(
-            'email'=>'required|email|unique:users,email',
-            'user_image'=>'image|mimes:jpg,jpeg,png,bmp,tiff |max:4096'
-        ));
+        'email'=>'required|email|unique:users,email,'.$user->id,
+        'user_image'=>'image|mimes:jpg,jpeg,png,bmp,tiff |max:4096',
+    ));
         $user_image = $request->file('user_image');
         $slug = str_slug($request->name);
  
