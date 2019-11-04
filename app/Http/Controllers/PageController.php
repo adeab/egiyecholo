@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public function dashboard()
     {
-        $categories=Category::where('parent_category', 0)->get();
+        $categories=Category::where('parent_category', 0)->where('id', '!=', 1)->get();
         $subcategories=Category::where('parent_category', '!=', 0)->get();
         $topposts=Post::orderBy('published_at', 'DESC')->take(5)->get();
         $all_posts=Post::orderBy('published_at', 'DESC')->get();
