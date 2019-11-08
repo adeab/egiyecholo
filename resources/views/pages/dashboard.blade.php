@@ -132,7 +132,15 @@
                      <ul>
                          @foreach($subcategories as $sc)
                             @if($sc->parent_category==$category->id)
-                             <li>
+
+                             <li class="sub_menu_li">
+                              <style type="text/css">
+                                .sub_menu_li:hover{
+                                  padding-left: 5px;
+                                  border-left: 5px solid {{$category->color_code}};
+                                  
+                                }
+                            </style>
                                   <!-- ------------------------------------------------------------------------- -->
                                   <!-- ei link e on hover bam paser yellow bar er jaygay {{$category->color_code}} ei color er bar asbe -->
                                   <!-- ------------------------ -->
@@ -171,8 +179,8 @@
                              <!-- ------------------------------------------------------------------------- -->
                                   <!-- ei link on hover {{$category->color_code}} ei color hobe -->
                                   <!-- ------------------------ -->
-                            <a href="{{url('posts/'.$post->id)}}"
-                            <h6>{{$post->title}}</h6>
+                            <a href="{{url('posts/'.$post->id)}}">
+                            <h6>{{$post->title}}</h6></a>
                          </div>
                          @if($i==3)
                             @break

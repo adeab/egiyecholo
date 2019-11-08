@@ -12,6 +12,12 @@ body {
   font-size: 28px;
   font-family: 'Hind Siliguri', sans-serif !important;
 }
+h1{font-size:54px;}
+h2{font-size:24px;}
+h3{font-size:22px;}
+h4{font-size:18px;}
+h5{font-size:16px;}
+h6{font-size:14px;}
 .padding0{
   padding: 0 !important;
 }
@@ -80,6 +86,7 @@ body {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  top: 60px;
 }
 
 .dropdown-content a {
@@ -172,7 +179,34 @@ height: 50px;
 .collapse{
   border-left: 1px solid #ccc;
 }
-
+.banla:hover{
+  border-bottom: 2px solid #fec62b;
+  width: 50%;
+}
+.khala:hover{
+  border-bottom: 2px solid #fe7234;
+  width: 50%;
+}
+.cinemea:hover{
+  border-bottom: 2px solid #7d0470;
+  width: 50%;
+}
+.world:hover{
+  border-bottom: 2px solid #d52872;
+  width: 50%;
+}
+.tarunno:hover{
+  border-bottom: 2px solid #f63442;
+  width: 50%;
+}
+.reading:hover{
+  border-bottom: 2px solid #00a99d;
+  width: 50%;
+}
+.taki:hover{
+  border-bottom: 2px solid #00a651;
+  width: 50%;
+}
 /*navbar area end*/
 /*slider new style start*/
 .img2{
@@ -225,7 +259,7 @@ border-bottom: 1px solid #eeecec;
     padding: 13px;
 }
 .sec_date{
-  color:#000;
+  color:#868080;
   margin: 15px 0px 5px 0px;
   font-weight: 300;
   font-size: 13px;
@@ -277,13 +311,14 @@ border-bottom: 1px solid #eeecec;
     #fff;
 }
 .third_lay_img a {
-    color: red;
+    color: #000;
     font-weight:700;
     font-size: 20px;
 }
 
 .third_lay_img a:hover {
-    color: red;
+    color: gray;
+    text-decoration: none;
 }
 .col-md-3.third_lay_img {
     padding: 13px;
@@ -321,11 +356,11 @@ border-bottom: 1px solid #eeecec;
   padding: 7px 1px;
   margin-left: 7px;
 }
-.right_tab_menu ul li:hover{
+/*.right_tab_menu ul li:hover{
   border-left: 5px solid #FEC62B;
-}
+}*/
 .right_tab_menu ul li a{
-  color: #BBB;
+  color: #8F8B8B;
   padding: 18px 0px;
 }
 .right_tab_menu ul li a:hover{
@@ -381,8 +416,8 @@ border-bottom: 1px solid #eeecec;
 #mixedSlider .MS-content .item h6{
   padding: 28px 4px 0 4px;
   font-weight: 501;
-  /*color: #868080;*/
-  color:#000;
+  color: #868080 !important;
+  
 }
 #mixedSlider {
   position: relative;
@@ -421,10 +456,11 @@ border-bottom: 1px solid #eeecec;
 #mixedSlider .MS-content .item p {
   font-size: 16px;
   margin: 15px 4px 0 4px;
-  color: red;
+  color: #000;
 }
 #mixedSlider .MS-content .item a:hover {
   text-shadow: 0 0 1px grey;
+  text-decoration: none;
 }
 #mixedSlider .MS-controls button {
   position: absolute;
@@ -722,7 +758,13 @@ footer {
   body {
     
   }
-
+.logo_img{
+  height: 42px;
+  width: 108px !important;
+}
+.ad_none{
+  display: none;
+}
 .menu_middle {
     position: relative;
     left: 50%;
@@ -734,6 +776,12 @@ footer {
 #navbar a{
   font-size: 10px;
   float: none;
+}
+#navbar a:hover {
+    margin: 0 auto;
+}
+.dropdown:hover .dropdown-content {
+    display: none;
 }
 .nav_right {
     position: absolute;

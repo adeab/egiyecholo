@@ -59,10 +59,10 @@ $(document).ready(function(){
 <nav class="navbar">
   <!-- Brand/logo -->
   <a class="navbar-brand" href="{{url('/')}}">
-    <img src="{{ asset('frontend/img/Logo Basic.png')}}" alt="logo" style="width:140px;margin-left: 10px;">
+    <img class="logo_img" src="{{ asset('frontend/img/Logo Basic.png')}}" alt="logo" style="width:140px;margin-left: 10px;">
 
   </a>
-  <div class="top_add">
+  <div class="top_add ad_none">
   <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-9620690561069746"
@@ -143,7 +143,6 @@ $(document).ready(function(){
 <!-- navbar area start -->
 <div id="navbar" >
  <nav class="navbar navbar-expand-md  navbar-dark"  >
- 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
   </button>
@@ -151,7 +150,7 @@ $(document).ready(function(){
   	<div class="menu_middle">
 	    <ul class="navbar-nav">
 		      <li class="nav-item dropdown">
-            <a class="nav-link dropbtn" href="{{url('বিভাগ/বাংলাদেশ')}}">বাংলাদেশ</a>
+            <a class="nav-link dropbtn banla" href="{{url('বিভাগ/বাংলাদেশ')}}">বাংলাদেশ  </a>
             <div class="dropdown-content">
               <a href="{{url('বিভাগ/বাংলাদেশ/আপনি-ই সাংবাদিক')}}">আপনি-ই সাংবাদিক</a>
               <a href="{{url('বিভাগ/বাংলাদেশ/ইনসাইড বাংলাদেশ')}}">ইনসাইড বাংলাদেশ</a>
@@ -161,7 +160,7 @@ $(document).ready(function(){
             </div>
 		      </li>
 		      <li class="nav-item dropdown">
-		        <a class="nav-link dropbtn" href="{{url('বিভাগ/খেলা ও ধুলা')}}">খেলা ও ধুলা</a>
+		        <a class="nav-link dropbtn khala" href="{{url('বিভাগ/খেলা ও ধুলা')}}">খেলা<span style="color: #fff;">_</span>ও<span style="color: #fff;">_</span>ধুলা</a>
              <div class="dropdown-content">
               <a href="#">ক্রিকেট</a>
               <a href="#">অ্যাসোসিয়েশনের</a>
@@ -169,10 +168,10 @@ $(document).ready(function(){
             </div>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="{{url('বিভাগ/সিনেমা হলের গলি')}}">সিনেমা হলের গলি</a>
+		        <a class="nav-link cinemea" href="{{url('বিভাগ/সিনেমা হলের গলি')}}">সিনেমা<span style="color: #fff;">_</span>হলের<span style="color: #fff;">_</span>গলি</a>
 		      </li>
 		      <li class="nav-item dropdown">
-		        <a class="nav-link dropbtn" href="{{url('বিভাগ/এরাউন্ড দ্যা ওয়ার্ল্ড')}}">এরাউন্ড দ্যা ওয়ার্ল্ড</a>
+		        <a class="nav-link dropbtn world" href="{{url('বিভাগ/এরাউন্ড দ্যা ওয়ার্ল্ড')}}">এরাউন্ড<span style="color: #fff;">_</span>দ্যা<span style="color: #fff;">_</span>ওয়ার্ল্ড</a>
             <div class="dropdown-content">
               <a href="{{url('বিভাগ/এরাউন্ড দ্যা ওয়ার্ল্ড/ছবি কথা বলে')}}">ছবি কথা বলে</a>
               <a href="{{url('বিভাগ/এরাউন্ড দ্যা ওয়ার্ল্ড/হেঁশেলের খোঁজ-খবরাদি')}}">হেঁশেলের খোঁজ-খবরাদি</a>
@@ -182,7 +181,7 @@ $(document).ready(function(){
             </div>
 		      </li>  
 		         <li class="nav-item dropdown">
-		        <a class="nav-link dropbtn" href="{{url('বিভাগ/তারুণ্য')}}">তারুণ্য</a>
+		        <a class="nav-link dropbtn tarunno" href="{{url('বিভাগ/তারুণ্য')}}">তারুণ্য</a>
             <div class="dropdown-content">
               <a href="{{url('বিভাগ/তারুণ্য/অনুপ্রেরণার গল্পগুচ্ছ')}}">অনুপ্রেরণার গল্পগুচ্ছ</a>
               <a href="{{url('বিভাগ/তারুণ্য/ডিসকভারিং বাংলাদেশ')}}">ডিসকভারিং বাংলাদেশ</a>
@@ -192,7 +191,7 @@ $(document).ready(function(){
             </div>
 		      </li> 
 		      <li class="nav-item dropdown">
-		        <a class="nav-link dropbtn" href="{{url('বিভাগ/রিডিং রুম')}}">রিডিং রুম</a>
+		        <a class="nav-link dropbtn reading" href="{{url('বিভাগ/রিডিং রুম')}}">রিডিং<span style="color: #fff;">_</span>রুম</a>
             <div class="dropdown-content">
               <a href="{{url('বিভাগ/রিডিং রুম/মনের অন্দরমহল')}}">মনের অন্দরমহল</a>
               <a href="{{url('বিভাগ/রিডিং রুম/রকমারি')}}">রকমারি</a>
@@ -202,7 +201,7 @@ $(document).ready(function(){
             </div>
 		      </li>  
 		      <li class="nav-item">
-		        <a class="nav-link" href="{{url('বিভাগ/টেকি দুনিয়ার টুকিটাকি')}}">টেকি দুনিয়ার টুকিটাকি</a>
+		        <a class="nav-link taki" href="{{url('বিভাগ/টেকি দুনিয়ার টুকিটাকি')}}">টেকি<span style="color: #fff;">_</span>দুনিয়ার<span style="color: #fff;">_</span>টুকিটাকি</a>
 		      </li> 
 	    </ul>
 	</div>
