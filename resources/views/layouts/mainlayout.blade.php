@@ -143,7 +143,7 @@ $(document).ready(function(){
 <!-- navbar area start -->
 <div id="navbar" >
  <nav class="navbar navbar-expand-md  navbar-dark"  >
-  <a class="navbar-brand" href="#"><img class="logo_img" src=""></a>
+ 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
   </button>

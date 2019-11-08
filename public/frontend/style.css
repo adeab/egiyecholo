@@ -126,8 +126,7 @@ body {
   padding: 10px;
 }
 .menu_middle{
-  position: absolute;
-  left: 10%;
+  margin: 0 auto;
 }
 #navbar a:hover {
   color: black;
