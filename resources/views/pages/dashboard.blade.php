@@ -133,6 +133,9 @@
                          @foreach($subcategories as $sc)
                             @if($sc->parent_category==$category->id)
                              <li>
+                                  <!-- ------------------------------------------------------------------------- -->
+                                  <!-- ei link e on hover bam paser yellow bar er jaygay {{$category->color_code}} ei color er bar asbe -->
+                                  <!-- ------------------------ -->
                                  <a href="{{url('বিভাগ/'.$category->name.'/'.$sc->name)}}">{{$sc->name}}</a>
                              </li>
                              @endif
@@ -165,6 +168,9 @@
                                         @endif
                                     @endif
                             <p class="sec_date">{{$post->name}}</p>
+                             <!-- ------------------------------------------------------------------------- -->
+                                  <!-- ei link on hover {{$category->color_code}} ei color hobe -->
+                                  <!-- ------------------------ -->
                             <a href="{{url('posts/'.$post->id)}}"
                             <h6>{{$post->title}}</h6>
                          </div>
