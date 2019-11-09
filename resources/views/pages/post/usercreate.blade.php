@@ -1,4 +1,4 @@
-<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+
 
 <div class=" container graphs">
     <div class="xs" style="background:#ccc;padding: 30px;">
@@ -22,6 +22,13 @@
                                 {{-- <p class="help-block">Example block-level help text here.</p> --}}
                             </div>
                             {{-- <div id="image_preview"></div> --}}
+                            <div class="form-group">
+                               <label for="focusedinput" class=" control-label">Caption</label>
+                               
+                                   <input type="text" class="form-control" name="caption" placeholder="Caption">
+                                                             
+                           </div>
+                           <hr>
                            <div class="form-group">
                                <label for="focusedinput" class="control-label">Title</label>
                                
@@ -41,6 +48,12 @@
                                 @endforeach
                                </select>
                            </div>
+                           <div class="form-group">
+                                <label for="focusedinput" class="control-label">Custom URL</label>
+                               
+                                <p class=>https://egiyecholo.com/posts/ <input type="text"  name="slug" placeholder="Enter the last part" required></p>
+                                                              
+                            </div>
                            <div class="form-group">
                                 <label for="focusedinput" class="control-label">SEO Keywords</label>
                                 

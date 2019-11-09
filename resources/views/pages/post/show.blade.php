@@ -7,15 +7,31 @@
 @section('post_title')
     {{$post->title}}
 @endsection
-@section('description')
-    {{$post->title}}
-@endsection
+
     @section('keywords')
 @foreach($seo_keywords as $seo_keyword)
 {{$seo_keyword}}
 @endforeach
 @endsection
     @section('body_content')
+
+  @section('facebook_meta')
+    <meta property="og:url" content="{{Request::fullUrl()}}">
+    @if($post->olddb==0)
+      <meta property="og:image" content="{{ asset('storage/blogImage/' . $post->cover_image) }}">
+              
+                                    @else
+                                        @if(!empty($post->cover_image))
+                                        <meta property="og:image" content="{{$post->cover_image}}">
+                                   
+                                        @else
+                                        <meta property="og:image" content="https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg">
+                                        
+                                        @endif
+                                    @endif
+    
+    <meta property="og:description" content="{{ str_limit($body, $limit = 80, $end = '...') }}">
+@endsection
 <style> 
 
 </style>
@@ -32,11 +48,12 @@
                 <p>{{$post->category->name}}</p>
           </div>
            <div class="title_tag col-md-12">
+          
              <h1>{{$post->title}}</h1>
         </div>
         <div class="title_list col-md-12">
             <ul>
-              <li style="list-style: none;"><img src="{{ asset('storage/userImage/'. $post->user->profile_picture) }}"><a href=""> {{$post->name}}</a></li>
+              <li style="list-style: none;"><img src="{{ asset('storage/userImage/'. $post->user->profile_picture) }}"><a href="{{url('searchauthor/'.$post->name)}}"> {{$post->name}}</a></li>
               <li><a href="">{{ \Carbon\Carbon::parse($post->published_at)->diffForHumans() }}</a></li>
               <!--<li><a href="">{{$post->viewcount}}</a></li>-->
               <!--<li><a href="">9 client</a></li>-->
@@ -113,7 +130,7 @@ margin-bottom: 50px;">
     <div class="row">
         @if(!empty($previous))
       <div class="col-md-6 pre">
-        <p><a href="{{url('posts/'.$previous->id)}}"><i class="fas fa-long-arrow-alt-left"></i> Previous</a></p>
+        <p><a href="{{url('posts/'.$previous->slug)}}"><i class="fas fa-long-arrow-alt-left"></i> Previous</a></p>
         
         
         @if($previous->olddb==0)
@@ -133,7 +150,7 @@ margin-bottom: 50px;">
       @if(!empty($next))
       <div class="col-md-6 ne">
         <div class="pull_ne">
-          <p ><a href="{{url('posts/'.$next->id)}}">Next <i class="fas fa-long-arrow-alt-right"></i></a></p> 
+          <p ><a href="{{url('posts/'.$next->slug)}}">Next <i class="fas fa-long-arrow-alt-right"></i></a></p> 
         </div>
            @if($next->olddb==0)
                                     <img src="{{ asset('storage/blogImage/' . $next->cover_image) }}" >

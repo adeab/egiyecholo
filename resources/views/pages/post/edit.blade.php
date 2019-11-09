@@ -15,8 +15,7 @@ Edit Post
 @endsection
 
 @section('body_content')
-<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
-
+<script src="{{ asset('backend/ckeditor/ckeditor.js') }}"></script>
 <div class="graphs">
     <div class="xs">
         <h4>Upload Post</h4>
@@ -60,6 +59,12 @@ Edit Post
                                </select></div>
                            </div>
                            <div class="form-group">
+                                <label for="focusedinput" class="control-label">Custom URL</label>
+                               
+                                    <p class=>https://egiyecholo.com/posts/ <input type="text"  name="slug" placeholder="Enter the last part" value="{{$post->slug}}" required></p>
+                                                              
+                            </div>
+                           <div class="form-group">
                             <label for="focusedinput" class="col-sm-2 control-label">SEO Keywords</label>
                             <div class="col-sm-8">
                             <input type="text" class="form-control1" name="seokey" placeholder="SEO Keywords" value="{{$post->seo_keywords}}">
@@ -91,6 +96,10 @@ Edit Post
                                         <div class="col-sm-8">
                                             <input type="email" class="form-control1" name="email" placeholder="Email" value="{{Auth::user()->email}}" hidden>
                                         </div>                               
+                                    </div>
+
+                                    <div class="form-group">
+                                    <input type="checkbox" name="draft" value="draft">Save As Draft
                                     </div>
                               @else
                               <div class="form-group">

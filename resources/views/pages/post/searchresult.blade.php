@@ -18,6 +18,10 @@
             Posts with tag <strong>{{$keyword}}</strong>
                 </div>
             <!-- <h4> {{$keyword}}</h4> -->
+        @elseif($type=="writer")
+        <div class="alert alert-info">
+        Posts by <strong>{{$keyword}}</strong>
+            </div>
         @else
         <div class="alert alert-info">
           <strong>{{$keyword}}</strong>
@@ -36,8 +40,8 @@
                                         <img class=" img-responsive" style="margin:0 auto;"  src="https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg" >
                                         @endif
                                     @endif
-                <p class="sec_date">{{$post->name}}</p>
-                <a href="{{url('posts/'.$post->id)}}"><h6>{{$post->title}}</h6></a>
+                <a href="{{url('searchauthor/'.$post->name)}}"><p class="sec_date">{{$post->name}}</p></a>
+                <a href="{{url('posts/'.$post->slug)}}"><h6>{{$post->title}}</h6></a>
              </div>
              @empty
              <h3>No Posts Found</h3>   

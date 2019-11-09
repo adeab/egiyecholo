@@ -21,9 +21,9 @@
                                     
                                 </div>
                                 <div class="text_slide">
-                                    <a href="{{url('posts/'.$post->id)}}">
-                                  <h6>{{$post->name}}</h6>
-                                 <p>{{$post->title}}</p>
+                                    
+                                    <a href="{{url('searchauthor/'.$post->name)}}"><h6>{{$post->name}}</h6></a>
+                                 <a href="{{url('posts/'.$post->slug)}}"><p>{{$post->title}}</p>
                                  </a>
                                 </div>
                             </div>
@@ -124,9 +124,9 @@
                  <div class="col-md-3 padding0">
                    <div class="menu_tab_1" style="background-color:{{$category->color_code}};">
                       {{$category->name}}
-                     {{-- <div class="tab_side_logo">
-                       <img src="{{ asset('frontend/img/smallmap.png')}}">
-                     </div> --}}
+                     <div class="tab_side_logo">
+                       <img src="{{ asset('frontend/img/'.$category->name.'.png')}}">
+                     </div>
                    </div>
                    <div class="right_tab_menu">
                      <ul>
@@ -175,11 +175,11 @@
                                         <img class=" img-responsive" style="margin:0 auto;"  src="https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg" >
                                         @endif
                                     @endif
-                            <p class="sec_date">{{$post->name}}</p>
+                                    <a href="{{url('searchauthor/'.$post->name)}}"><p class="sec_date">{{$post->name}}</p></a>
                              <!-- ------------------------------------------------------------------------- -->
                                   <!-- ei link on hover {{$category->color_code}} ei color hobe -->
                                   <!-- ------------------------ -->
-                            <a href="{{url('posts/'.$post->id)}}">
+                            <a href="{{url('posts/'.$post->slug)}}">
                             <h6>{{$post->title}}</h6></a>
                          </div>
                          @if($i==3)

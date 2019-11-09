@@ -103,6 +103,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li>
                                     <a href="{{route('admin.pendingposts')}}">Pending Posts</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('admin.draftposts')}}">Draft Posts</a>
+                                </li>
                                 @endif
                                 <li>
                                     <a href="{{route('admin.myposts')}}">My Posts</a>

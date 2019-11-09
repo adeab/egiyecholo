@@ -25,9 +25,12 @@ Route::group(['prefix'=>'backend','middleware'=>'auth','namespace'=>'admin'],fun
     Route::get('/userlist', 'AdminPagesController@user_list')->name('admin.userlist');
     Route::get('/useradd', 'AdminPagesController@user_add')->name('admin.useradd');
     Route::get('/posts', 'AdminPagesController@post_list')->name('admin.allposts');
+    Route::post('/search_posts', 'AdminPagesController@search_post_list')->name('posts.adminsearch');
+    Route::post('/search_users', 'AdminPagesController@search_user_list')->name('users.adminsearch');
     Route::get('/iaposts', 'AdminPagesController@ia_post_list')->name('admin.iaposts');
     Route::get('/pendings', 'AdminPagesController@pending_post_list')->name('admin.pendingposts');
     Route::get('/myposts', 'AdminPagesController@my_post_list')->name('admin.myposts');
+    Route::get('/draftposts', 'AdminPagesController@draft_post_list')->name('admin.draftposts');
     Route::get('/posts/{id}', 'AdminPagesController@single_view')->name('admin.postview');
     Route::get('/makecontributor/{post_id}', 'AdminPagesController@makecontributor')->name('admin.makecontributor');
     Route::get('/publishpost/{postid}', 'AdminPagesController@publishpost')->name('admin.publishpost');
@@ -38,6 +41,8 @@ Route::group(['prefix'=>'backend','middleware'=>'auth','namespace'=>'admin'],fun
     Route::resource('users', 'UserController'); 
 });
 Route::resource('/posts', 'PostController');
+
+Route::get('/posts/{slug}', 'PostController@show');
 Route::post('ckeditor/upload', 'CkeditorController@upload')->name('ckeditor.upload');
 Route::get('/', 'PageController@dashboard');
 Route::get('বিভাগ/{param}', 'PageController@categorypage');
@@ -46,6 +51,7 @@ Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/calback/{provider}', 'SocialController@callback');
 Route::get('/search', 'PostController@searchkeyword')->name('searchkeyword');
 Route::get('/searchtag/{tag}', 'PostController@searchtag');
+Route::get('/searchauthor/{authorname}', 'PostController@searchauthor');
 Route::get('/saved_posts', 'PostController@saved_post');
 Route::get('/addbookmark/{post_id}', 'PostController@addbookmark');
 Route::get('/removebookmark/{post_id}', 'PostController@removebookmark');

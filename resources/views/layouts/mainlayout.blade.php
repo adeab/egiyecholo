@@ -4,10 +4,13 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="@yield('description')">
+
+  @yield('facebook_meta')
+
+    <!-- <meta name="description" content="@yield('description')"> -->
     <meta name="keywords" content="@yield('keywords')">
     <meta name="title" content="@yield('post_title')">
-    <meta name="description" content="@yield('description')">
+    <!-- <meta name="description" content="@yield('description')"> -->
     <title>এগিয়ে চলো | বাংলাদেশের টাইমলাইন</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('frontend/style.css')}}">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
@@ -224,7 +227,7 @@ $(document).ready(function(){
 	<div class="container footer_agaia">
 
 		<div class="row">
-      <div class="col-md-12 manu_footer">
+      <!-- <div class="col-md-12 manu_footer">
           <ul>
             <li><a href="#">আমাদের সম্পর্কে</a></li>
             <li><a href="#">বিজ্ঞাপন  </a></li>
@@ -287,7 +290,7 @@ $(document).ready(function(){
 				<p>পরিবর্তন</p>
 				<p>দর দাম </p>
 				<p>পণ্যের রিভিউ </p>
-			</div>
+			</div>-->
       <div class="col-md-12" style="padding: 15px;border-top: 2px solid #ccc;">
         <div class="row">
           <div class="col-md-5 f_right">
@@ -298,7 +301,7 @@ $(document).ready(function(){
               <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
               <li><a href="#"><i class="fas fa-rss"></i></a></li>
             </ul>
-          </div>
+          </div> 
           <div class="col-md-7 f_left">
               <div class="foot_text1">
             <p>সম্পাদক ও প্রকাশক:<span style="font-weight: 501;"> মুক্তার ইবনে রাফিক</span>  <br>

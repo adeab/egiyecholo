@@ -4,7 +4,12 @@ Posts List
 @endsection
 @section('body_content')
 <div class="span_3">
+
     <div class="bs-example1" data-example-id="contextual-table">
+    <form method="post" action="{{route('posts.adminsearch')}}">
+@csrf
+<input type="text" name="searchbox"><input type="submit" value="Search">
+</form>
       <table class="table table-responsive">
         <thead>
           <tr>

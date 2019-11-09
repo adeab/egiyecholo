@@ -6,7 +6,7 @@
     <!--        <img class=" img-responsive" style="margin:0 auto;"  src="{{$post->cover_image}}" >-->
     <!--        @endif-->
     <!--<p class="sec_date">{{$post->name}}</p>-->
-    <!--<a href="{{url('posts/'.$post->id)}}"-->
+    <!--<a href="{{url('posts/'.$post->slug)}}"-->
     <!--<h6>{{$post->title}}</h6>-->
     <!--{{$allposts[1]->category->name}}-->
     

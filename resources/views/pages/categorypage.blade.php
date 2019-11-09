@@ -88,8 +88,8 @@
                                         <img class=" img-responsive" style="margin:0 auto;"  src="https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg" >
                                         @endif
                                     @endif
-                <p class="sec_date">{{$post->name}}</p>
-                <a href="{{url('posts/'.$post->id)}}"><h6>{{$post->title}}</h6></a>
+                                    <a href="{{url('searchauthor/'.$post->name)}}"><p class="sec_date">{{$post->name}}</p></a>
+                <a href="{{url('posts/'.$post->slug)}}"><h6>{{$post->title}}</h6></a>
              </div>   
               @endforeach
               {{$posts->links()}}

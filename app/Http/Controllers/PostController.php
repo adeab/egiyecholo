@@ -11,6 +11,8 @@ use App\SeoPost;
 use App\Tag;
 use App\TagPost;
 use App\Bookmark;
+use App\User;
+use Image;
 
 // use Visitor;
 
@@ -36,8 +38,10 @@ class PostController extends Controller
     {
         // $log=Visitor::count();   //fetch ip record;
         // dd($log);
-        $categories=Category::where('parent_category', 0)->get();
-        return view('pages.post.create', compact('categories'));
+        $allusers=User::all();
+        // $categories=Category::where('parent_category', 0)->get();
+        $categories=Category::all();
+        return view('pages.post.create', compact('categories', 'allusers'));
     }
 
     /**
@@ -48,26 +52,54 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         
+       
         $this->validate($request, ['title'=>'required', 
         'body'=>'required',
         'cover'=>'image|required|mimes:jpg,jpeg,png,bmp,tiff |max:4096'
         ]);
         $image = $request->file('cover');
-        $slug = str_slug($request->title);
+        $slug = $request->slug;
         $currentDate = Carbon::now()->toDateString();
         $imagename = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
         if (!file_exists('storage/blogImage')) {
             mkdir('storage.blogImage', 0777, true);
         }
         $image->move('storage/blogImage', $imagename);
+
+        $img = Image::make('storage/blogImage/'.$imagename);  
+
+        
+        $img->text($request->caption ,0,20, function($font) {  
+
+            // $font->file(public_path('path/font.ttf'));  
+  
+          
+  
+            $font->color('#e1e1e1');  
+  
+          
+  
+        });    
+ 
+        $img->save('storage/blogImage/'.$imagename);  
         
         $post=new Post; //create new blog instance
         $post->title=$request->title;
         $post->body=$request->body;
+        $post->slug=$request->slug;
         $post->cover_image=$imagename;
+        if($request->assigned_author=="None"){
         $post->email=$request->email;
-        $post->name=$request->name;
+        $post->name=$request->name;}
+        else
+        {
+            $post_user=User::find($request->assigned_author);
+            $post->email=$post_user->email;
+            $post->name=$post_user->name;
+        }
+        
         $post->reading_time=$request->time;
         $post->category_id=$request->category;
         $post->seo_keywords=$request->seokey;
@@ -75,7 +107,7 @@ class PostController extends Controller
         
         $post->viewcount=0;
 
-        
+        // return $post->email;
         
 
         
@@ -92,6 +124,10 @@ class PostController extends Controller
         else
         {
         $post->publication_status="Pending";
+        }
+        if (isset(($request->draft[0])))
+        {
+            $post->publication_status="Draft";
         }
         $post->save();
 
@@ -172,10 +208,12 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         //showing error solution
-        $post=Post::find($id);  
+        $post=Post::where('slug', $slug)->first();
+        // dd($post);
+        $id=$post->id; 
         if (Auth::check()) {
             $bookmark= Bookmark::where('user_id', auth()->user()->id)->where('post_id', $id)->first();
                 if(empty($bookmark)){
@@ -265,7 +303,7 @@ class PostController extends Controller
         $post=Post::find($id);
         $image = $request->file('cover');
         if(isset($image)){
-        $slug = str_slug($request->title);
+       
         $currentDate = Carbon::now()->toDateString();
         $imagename = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
         if (!file_exists('storage/blogImage')) {
@@ -281,12 +319,19 @@ class PostController extends Controller
         $post->title=$request->title;
         $post->body=$request->body;
         $post->cover_image=$imagename;
-        $post->email=$request->email;
-        $post->name=$request->name;
+        $post->slug=$request->slug;
+        // $post->email=$request->email;
+        // $post->name=$request->name;
         $post->category_id=$request->category;
         $post->seo_keywords=$request->seokey;
         $post->tags=$request->tag;
-        $post->viewcount=0;                
+        // $post->viewcount=0;
+        
+        if (isset(($request->draft[0])))
+        {
+            $post->publication_status="Draft";
+        }
+        
         $post->save();
         
         //delete previous tags and seos
@@ -424,6 +469,17 @@ class PostController extends Controller
         return view('pages.post.searchresult', compact('posts', 'type', 'keyword'));
         
     }
+    public function searchauthor($authorname)
+    {
+        // dd($request);
+        $keyword= $authorname;
+        
+        $posts=Post::where('name', 'like', '%'.$keyword.'%')->orderBy('published_at', 'DESC')->paginate(20);
+        $type="writer";
+
+        return view('pages.post.searchresult', compact('posts', 'type', 'keyword'));
+        
+    }
     public function saved_post()
     {
         // dd($request);
@@ -450,11 +506,13 @@ class PostController extends Controller
     }
     public function addbookmark($id)
     {
+
         $bookmark=new Bookmark;
+        $post=Post::find($id);
         $bookmark->post_id= $id;
         $bookmark->user_id= auth()->user()->id;
         $bookmark->save();
-        return redirect('posts/'.$id);
+        return redirect('posts/'.$post->slug);
 
 
     }
@@ -462,7 +520,8 @@ class PostController extends Controller
     {
         $bookmark=Bookmark::where('user_id', auth()->user()->id)->where('post_id', $id)->first();
         $bookmark->delete();
-        return redirect('posts/'.$id);
+        $post=Post::find($id);
+        return redirect('posts/'.$post->slug);
 
     }
 }

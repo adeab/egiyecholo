@@ -1,4 +1,4 @@
-<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+
 
 <div class=" container graphs">
     <div class="xs" style="background:#ccc;padding: 30px;">
@@ -22,6 +22,14 @@
                                 {{-- <p class="help-block">Example block-level help text here.</p> --}}
                             </div>
                             {{-- <div id="image_preview"></div> --}}
+
+                            <div class="form-group">
+                               <label for="focusedinput" class=" control-label">Caption</label>
+                               
+                                   <input type="text" class="form-control1" name="caption" placeholder="Caption">
+                                                             
+                           </div>
+                           <hr>
                            <div class="form-group">
                                <label for="focusedinput" class=" control-label">Title</label>
                                
@@ -41,6 +49,12 @@
                                 @endforeach
                                </select>
                            </div>
+                           <div class="form-group">
+                                <label for="focusedinput" class="control-label">Custom URL</label>
+                               
+                                    <p class=>https://egiyecholo.com/posts/ <input type="text"  name="slug" placeholder="Enter the last part" required></p>
+                                                              
+                            </div>
                            <div class="form-group">
                                 <label for="focusedinput" class="control-label">SEO Keywords</label>
                                
@@ -73,6 +87,22 @@
                                         
                                             <input type="email" class="form-control1" name="email" placeholder="Email" value="{{Auth::user()->email}}" hidden>
                                                                      
+                                    </div>
+                                    @if (Auth::user()->category=="Admin")
+                                    <div class="form-group">
+                                        <label for="selector2" class="control-label">Assign Author</label>
+                                        <select name="assigned_author" id="selector2" class="form-control1">
+                                            <option selected value="None">None</option>
+
+                                            @foreach ($allusers as $user)
+                                            <option value="{{$user->id}}">{{$user->name}}</option>    
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    
+                                    @endif
+                                    <div class="form-group">
+                                    <input type="checkbox" name="draft" value="draft">Save As Draft
                                     </div>
                               @else
                               <div class="form-group">

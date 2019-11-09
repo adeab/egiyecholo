@@ -1,3 +1,4 @@
+<script src="{{ asset('backend/ckeditor/ckeditor.js') }}"></script>
 @if (Auth::check())
     @if (Auth::user()->category=="Admin" || Auth::user()->category=="Editor" || Auth::user()->category=="Contributor")
         @php 

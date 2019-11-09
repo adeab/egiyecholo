@@ -5,6 +5,10 @@ User List
 @section('body_content')
 <div class="span_3">
     <div class="bs-example1" data-example-id="contextual-table">
+    <form method="post" action="{{route('users.adminsearch')}}">
+@csrf
+<input type="text" placeholder="Enter User Email" name="searchbox"><input type="submit" value="Search">
+</form>
       <table class="table table-responsive">
         <thead>
           <tr>

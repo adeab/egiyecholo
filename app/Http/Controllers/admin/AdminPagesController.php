@@ -40,6 +40,7 @@ use App\SeoKeyword;
 use App\SeoPost;
 use App\Tag;
 use App\TagPost;
+use App\WpYoastSeoLink;
 
 class AdminPagesController extends Controller
 {
@@ -97,10 +98,73 @@ class AdminPagesController extends Controller
         if(auth()->user()->category=="Admin" || auth()->user()->category=="Editor")
         {
        
-        
-            
+            // $slugs=WpYoastSeoLink::all();
+            // foreach($slugs as $slug)
+            // {
+            //     $slug_array=explode('/', $slug->url);
+            //     $actual_slug=end($slug_array);
+            //     if($actual_slug=="")
+            //     {
+            //         $actual_slug=prev($slug_array);
+            //     }
+            //     $post=Post::find()
+                
+            // // }
+            // $posts=Post::skip(5000)->take(1000)->get();
+            // foreach($posts as $post)
+            // {
+            //     $post->slug=(strval($post->id).$post->title);
+            //     $post->save();
+            // }
+            // $post=Post::first();
+            // return preg_replace('/[*-^-A-Za-z0-9-]+/', '-', $post->title);
+    
             $all_posts=Post::where('publication_status', 'Published')->orderBy('id', 'DESC')->paginate(20);
             return view('adminpanel.allposts', compact('all_posts'));
+        }
+        else
+        {
+            return view('pages.noaccess');
+        }
+        
+         
+    }
+    public function search_post_list(Request $request)
+    {
+        
+        
+        // dd($request);
+        if(auth()->user()->category=="Admin" || auth()->user()->category=="Editor")
+        {
+       
+            // $slugs=WpYoastSeoLink::all();
+            $keyword= $request->searchbox;
+        // $posts=Post::
+           
+            $all_posts=Post::where('title', 'like', '%'.$keyword.'%')->orderBy('published_at', 'DESC')->paginate(20);
+            return view('adminpanel.searchposts', compact('all_posts'));
+        }
+        else
+        {
+            return view('pages.noaccess');
+        }
+        
+         
+    }
+    public function search_user_list(Request $request)
+    {
+        
+        
+        // dd($request);
+        if(auth()->user()->category=="Admin" || auth()->user()->category=="Editor")
+        {
+       
+            // $slugs=WpYoastSeoLink::all();
+            $keyword= $request->searchbox;
+        // $posts=Post::
+           
+        $all_users = User::where('email', 'like', '%'.$keyword.'%')->orderBy('id', 'DESC')->paginate(20);
+        return view('adminpanel.searchusers', compact('all_users'));
         }
         else
         {
@@ -137,6 +201,20 @@ class AdminPagesController extends Controller
         {
             $all_posts=Post::where('publication_status', 'Pending')->orWhere('publication_status', 'Awaiting Publication')->orderBy('id', 'DESC')->paginate(20);
             return view('adminpanel.pendingposts', compact('all_posts'));
+        }
+        else
+        {
+            return view('pages.noaccess');
+        }
+        
+         
+    }
+    public function draft_post_list()
+    {
+        if(auth()->user()->category=="Admin" || auth()->user()->category=="Contributor" || auth()->user()->category=="Editor")
+        {
+            $all_posts=Post::where('publication_status', 'Draft')->orderBy('id', 'DESC')->paginate(20);
+            return view('adminpanel.draftposts', compact('all_posts'));
         }
         else
         {
