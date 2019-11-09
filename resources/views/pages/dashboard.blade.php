@@ -125,7 +125,7 @@
                    <div class="menu_tab_1" style="background-color:{{$category->color_code}};">
                       {{$category->name}}
                      <div class="tab_side_logo">
-                       <img src="{{ asset('frontend/img/'.$category->name.'.png')}}">
+                       <img src="{{ asset('frontend/img/category_icon/'.$category->id.'.png')}}">
                      </div>
                    </div>
                    <div class="right_tab_menu">
