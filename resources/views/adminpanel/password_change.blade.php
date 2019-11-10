@@ -32,7 +32,7 @@ Change Password
         <div class="w3_agileits_main_grid w3l_main_grid">
             <span class="agileits_grid">
                 <label>Confirm Password </label>
-                <input type="password" name="password_confirm" placeholder="Confirm Password" required="">
+                <input type="password" name="password_confirmation" placeholder="Confirm Password" required="">
                 </span>
         </div>
         

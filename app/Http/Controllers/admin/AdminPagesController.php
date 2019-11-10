@@ -9,7 +9,8 @@ use App\Post;
 use Visitor;
 use Carbon\Carbon;
 use View;
-
+use Auth;
+use Illuminate\Support\Facades\Hash;
 use Facebook\InstantArticles\Client\Client;
 use Facebook\InstantArticles\Transformer\Transformer;
 use Facebook\InstantArticles\Elements\InstantArticle;
@@ -292,10 +293,11 @@ class AdminPagesController extends Controller
             'password' => 'required|confirmed'
         ]);
         $hashedPassword= Auth::user()->password;
-        if(Hash::check($request->oldpassword, $hashedpassword)){
+        if(Hash::check($request->oldpassword, $hashedPassword)){
             $user = User::find(Auth::id());
             $user->password = Hash::make($request->password);
             $user->save();
+            // return "all ok";
             Auth::logout();
             return redirect()->route('login')->with('success', "Password is Changed");
 
